@@ -133,8 +133,8 @@ https://blog.csdn.net/python_pycharm/article/details/85338801#commentsedit
 其中makeTxt.py和voc_label.py参见https://blog.csdn.net/public669/article/details/98020800
 
 ### 3.3 文件配置 ###
-**在data/custom目录下新建classes.names**
-**在config目录下新建custom.data**
+**在data/custom目录下新建classes.names**--要检测物体的名称
+**在config目录下新建custom.data**--一些声明，包括类别数、train和valid的路径、class.names
 
 注：classes.names文件最后要留一个空行，不然会报错list index out of range，详情见
 https://github.com/eriklindernoren/PyTorch-YOLOv3/issues/177
@@ -151,6 +151,7 @@ bash download_weights.sh
 python3 detect.py --image_folder data/coco_samples/
 ```
 --修改cfg中的learning_rate=0.005 #原来是0.001
+
 --修改train和test.py中的batch_size=4 #原来为8，不改的话报错shape is invaid for input of size
 ```
 #自定义模型
