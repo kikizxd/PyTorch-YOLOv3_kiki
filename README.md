@@ -31,6 +31,7 @@ conda install pytorch-cpu torchvision-cpu -c pytorch
 
 ## 二、基础知识--Tensor ##
 PyTorch中的Tensor常用类型有：float,int,bool...
+
 Tensor和Numpy中的ndarray很多操作类似，两者之间也可以相互转换
 ### 2.1 Tensor的构建 ###
 ```
@@ -117,17 +118,24 @@ https://blog.csdn.net/python_pycharm/article/details/85338801#commentsedit
 
 ### 3.2 数据预处理 ###
 **1）复制JPEGImages，重命名为images**
+	
 	--为了和之后代码（utils/datasets.py）中路径保持一致
+	
 **2）建立两个空的文件夹ImageSets，labels**
 **3）运行makeTxt.py**，将数据分为训练集，测试集和验证集
+	
 	--在ImageSets下得到四个txt文件，train,test,valid,trainval
+	
 **4）运行voc_label.py**（记得修改其中的classes为自己数据集要检测的类别），得到训练集，测试集和验证集的具体路径以及具体labels信息
+	
 	--得到train，test,valid三个txt，labels中的五点标注txt信息
+	
 其中makeTxt.py和voc_label.py参见https://blog.csdn.net/public669/article/details/98020800
 
 ### 3.3 文件配置 ###
 **在data/custom目录下新建classes.names**
 **在config目录下新建custom.data**
+
 注：classes.names文件最后要留一个空行，不然会报错list index out of range，详情见
 https://github.com/eriklindernoren/PyTorch-YOLOv3/issues/177
 
