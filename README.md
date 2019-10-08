@@ -187,8 +187,11 @@ Could not connect to any X display.
 
 #### 2、执行train.py报错ValueError: not enough values to unpack (expected 3, got 0) ####
 修改：train.py中150行
+
 if epoch % opt.evaluation_interval == 0:
+
 改为
+
 if epoch % opt.evaluation_interval == 1:
 
 #### 3、执行train.py报错IndexError: index 0 is out of range ####
