@@ -202,8 +202,13 @@ if epoch % opt.evaluation_interval == 1:
 
 ## 参考资料 ##
 https://github.com/zergtant/pytorch-handbook
+
 https://pytorch.org/tutorials/
+
 https://github.com/L1aoXingyu/code-of-learn-deep-learning-with-pytorch
+
 https://blog.csdn.net/public669/article/details/98020800
+
 https://github.com/eriklindernoren/PyTorch-YOLOv3
+
 http://www.pianshen.com/article/1287380494/
