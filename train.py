@@ -25,14 +25,14 @@ import torch.optim as optim
 
 
 if __name__ == "__main__":
-    #argparse用于解析命令行参数
-	 #argparse使用步骤：
-    #0、导入模块
-    #import argparse
-	 #1、创建解析对象
+    # argparse用于解析命令行参数
+    # argparse使用步骤：
+    # 0、导入模块
+    # import argparse
+    # 1、创建解析对象
     parser = argparse.ArgumentParser()
-	 #2、向对象中添加命令行参数和选项
-	 ##type为参数类型，默认字符串string，default为默认值
+    # 2、向对象中添加命令行参数和选项
+    ## type为参数类型，默认字符串string，default为默认值
     parser.add_argument("--epochs", type=int, default=20, help="number of epochs")#epochs=100
     parser.add_argument("--batch_size", type=int, default=4, help="size of each image batch")
     parser.add_argument("--gradient_accumulations", type=int, default=2, help="number of gradient accums before step")
@@ -45,46 +45,46 @@ if __name__ == "__main__":
     parser.add_argument("--evaluation_interval", type=int, default=1, help="interval evaluations on validation set")
     parser.add_argument("--compute_map", default=False, help="if True computes mAP every tenth batch")
     parser.add_argument("--multiscale_training", default=True, help="allow for multi-scale training")
-    #3、调用parse_args()方法进行解析
+    # 3、调用parse_args()方法进行解析
     opt = parser.parse_args()
     print(opt)
 		
-	 #pytorch没有自己的tensorboard，调用utils_all.py中的类，使pytorch可以调用tensorboard
+    # pytorch没有自己的tensorboard，调用utils_all.py中的类，使pytorch可以调用tensorboard
     logger = Logger("logs")
 	
-	 #设备使用，如果有cuda，用cuda，没有的话在cpu上运行
+    # 设备使用，如果有cuda，用cuda，没有的话在cpu上运行
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 	
-	 #创建多级目录
-	 #exist_ok默认False，即要创建的目录已经存在的话，会报OSError错
+    # 创建多级目录
+    # exist_ok默认False，即要创建的目录已经存在的话，会报OSError错
     os.makedirs("output", exist_ok=True)
     os.makedirs("checkpoints", exist_ok=True)
 
-    #获取数据配置
-	 #parse_data_config是utils_all中的函数，将数据传给不同的gpu设备
+    # 获取数据配置
+    # parse_data_config是utils_all中的函数，将数据传给不同的gpu设备
     data_config = parse_data_config(opt.data_config)
     train_path = data_config["train"]
     valid_path = data_config["valid"]
-	 #load_classes是utils_all种的函数，加载路径
+    # load_classes是utils_all种的函数，加载路径
     class_names = load_classes(data_config["names"])
 
-    #模型启动
-	 ##Darknet是models.py中定义的YoLo-v3目标检测模型
-	 ##opt.model_def是设置以上opt参数后的YoLo-v3模型
-	 ##weights_init_normal在utils_all.py中有定义这个函数，设置初始权重
+    # 模型启动
+    ## Darknet是models.py中定义的YoLo-v3目标检测模型
+    ## opt.model_def是设置以上opt参数后的YoLo-v3模型
+    ## weights_init_normal在utils_all.py中有定义这个函数，设置初始权重
     model = Darknet(opt.model_def).to(device)
     model.apply(weights_init_normal)
 	
-	 #权重加载
-    #如果已经存在预训练权重，直接加载；如果不存在，训练构建后加载
+    # 权重加载
+    # 如果已经存在预训练权重，直接加载；如果不存在，训练构建后加载
     if opt.pretrained_weights:
         if opt.pretrained_weights.endswith(".pth"):
             model.load_state_dict(torch.load(opt.pretrained_weights))
         else:
             model.load_darknet_weights(opt.pretrained_weights)
 
-    #数据加载
-	 ##ListDataset是utils_all中的类，对数据集简单操作，使其满足input输入格式（包括分成一个个batch）
+    # 数据加载
+    ## ListDataset是utils_all中的类，对数据集简单操作，使其满足input输入格式（包括分成一个个batch）
     dataset = ListDataset(train_path, augment=True, multiscale=opt.multiscale_training)
     dataloader = torch.utils.data.DataLoader(
         dataset,
@@ -95,7 +95,7 @@ if __name__ == "__main__":
         collate_fn=dataset.collate_fn,
     )
 
-	 #优化器的选择
+    # 优化器的选择
     optimizer = torch.optim.Adam(model.parameters())
 
 	 #
@@ -116,8 +116,8 @@ if __name__ == "__main__":
         "conf_noobj",
     ]
 	
-	 #epoch迭代
-	 ##one epoch = numbers of iterations = 训练样本的数量/batch_size
+    # epoch迭代
+    ## one epoch = numbers of iterations = 训练样本的数量/batch_size
     for epoch in range(opt.epochs):
         model.train()
         start_time = time.time()
