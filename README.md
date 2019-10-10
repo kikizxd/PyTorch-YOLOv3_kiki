@@ -105,8 +105,11 @@ print(x.size(), y.size(), z.size())
 
 ## 三、小案例--YOLOv3红细胞检测 ##
 这里主要用红细胞检测为案例（自己百度下载并标注了一些苹果橘子图片，同样流程也完成了目标检测），结果展示：
-![avatar](appleorange_00000.png)
 ![avatar](BloodImage_00000.png)
+
+![avatar](steel_00000.png)
+
+![avatar](appleorange_00000.png)
 ### 3.1 LabelImg数据标注 ###
 对JPEGImages中的原始图像进行目标标注，使用的工具是LabelImg，YOLOV3的label标注的一行五个数分别代表类别编号，BoundingBox 中心 X 坐标，中心 Y 坐标，宽，高（这些坐标都是 0～1 的相对坐标）。labelImg下载及使用方法参见：
 https://blog.csdn.net/python_pycharm/article/details/85338801#commentsedit
