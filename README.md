@@ -114,7 +114,9 @@ https://blog.csdn.net/python_pycharm/article/details/85338801#commentsedit
 **最后将数据整理成两个个文档存在data/custom文件夹里**
 **Annotations**存放标注后的xml文件
 **JPEGImages**存放原始图片
-红细胞标注后的数据下载参见的是https://github.com/cosmicad/dataset
+红细胞、苹果橘子、钢筋标注后的数据下载参见
+https://pan.baidu.com/s/1iFnjmvAsjJjxEg5BB5LQPg 
+提取码：5xzs
 
 ### 3.2 数据预处理 ###
 **1）复制JPEGImages，重命名为images**
@@ -152,7 +154,7 @@ python3 detect.py --image_folder data/coco_samples/
 ```
 --修改cfg中的learning_rate=0.005 #原来是0.001
 
---修改train和test.py中的batch_size=4 #原来为8，不改的话报错shape is invaid for input of size
+--修改train和test.py中的batch_size=4 #原来为8，不改的话报错RuntimeError: CUDA out of memory.
 ```
 #自定义模型
 cd config/
