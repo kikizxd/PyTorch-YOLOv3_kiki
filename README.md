@@ -195,7 +195,7 @@ Could not connect to any X display.
 原因：没装Xmanager，装上就好了，Xmanager下载地址：http://www.xshellcn.com/
 
 #### 2、执行train.py报错ValueError: not enough values to unpack (expected 3, got 0) ####
-修改：train.py中150行
+修改：大神的train.py中150行
 
 if epoch % opt.evaluation_interval == 0:
 
