@@ -30,6 +30,8 @@ conda install pytorch-cpu torchvision-cpu -c pytorch
 ```
 
 ## 二、基础知识--Tensor ##
+之前只用过Tensflow，学习pytorch时候，第一念头就是tensor，下面写一些入坑笔记，更多的pytorch知识参见文末的参考文献。
+
 PyTorch中的Tensor常用类型有：float,int,bool...
 
 Tensor和Numpy中的ndarray很多操作类似，两者之间也可以相互转换
