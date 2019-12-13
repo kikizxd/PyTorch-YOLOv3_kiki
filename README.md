@@ -123,7 +123,6 @@ https://blog.csdn.net/python_pycharm/article/details/85338801#commentsedit
 **JPEGImages**存放原始图片
 
 红细胞、苹果橘子、钢筋标注后的数据下载参见
-
 https://pan.baidu.com/s/1iFnjmvAsjJjxEg5BB5LQPg 
 提取码：5xzs
 
