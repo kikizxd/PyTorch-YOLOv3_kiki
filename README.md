@@ -117,7 +117,9 @@ print(x.size(), y.size(), z.size())
 https://blog.csdn.net/python_pycharm/article/details/85338801#commentsedit
 
 **最后将数据整理成两个个文档存在data/custom文件夹里**
+
 **Annotations**存放标注后的xml文件
+
 **JPEGImages**存放原始图片
 
 红细胞、苹果橘子、钢筋标注后的数据下载参见
@@ -131,6 +133,7 @@ https://pan.baidu.com/s/1iFnjmvAsjJjxEg5BB5LQPg
 	--为了和之后代码（utils/datasets.py）中路径保持一致
 	
 **2）建立两个空的文件夹ImageSets，labels**
+
 **3）运行makeTxt.py**，将数据分为训练集，测试集和验证集
 	
 	--在ImageSets下得到四个txt文件，train,test,valid,trainval
@@ -143,6 +146,7 @@ https://pan.baidu.com/s/1iFnjmvAsjJjxEg5BB5LQPg
 
 ### 3.3 文件配置 ###
 **在data/custom目录下新建classes.names**--要检测物体的名称
+
 **在config目录下新建custom.data**--一些声明，包括类别数、train和valid的路径、class.names
 
 注：classes.names文件最后要留一个空行，不然会报错list index out of range，详情见
@@ -150,6 +154,7 @@ https://github.com/eriklindernoren/PyTorch-YOLOv3/issues/177
 
 ### 3.4 模型训练测试及试用 ###
 代码参考的是大神的https://github.com/eriklindernoren/PyTorch-YOLOv3
+
 因为coco数据集太大了，下载要好久，就考虑用小点的数据来学习，不过原代码已经保存好训练权重yolov3.weights了，可以直接进行coco数据集（80类）目标检测
 ```
 #下载训练好的coco数据集权重
