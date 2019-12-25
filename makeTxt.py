@@ -1,7 +1,7 @@
 import os
 import random
-trainval_percent = 0.8
-train_percent = 0.7
+trainval_percent = 0.8  #训练集+验证集占总比例多少
+train_percent = 0.7 #训练集占验证集+训练集比例多少
 xmlfilepath = 'data/custom/Annotations'
 txtsavepath = 'data/custom/ImageSets'
 total_xml = os.listdir(xmlfilepath)
