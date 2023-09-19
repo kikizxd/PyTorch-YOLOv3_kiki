@@ -36,7 +36,7 @@ PyTorch中的Tensor常用类型有：float,int,bool...
 
 Tensor和Numpy中的ndarray很多操作类似，两者之间也可以相互转换
 ### 2.1 Tensor的构建 ###
-```
+```python
 import torch
 
 a = torch.FloatTensor(2,3)	#2x3浮点型张量
@@ -60,7 +60,7 @@ x = torch.randn_like(x, dtype=torch.float)
 print(x.size())	#返回tuple
 ```
 ### 2.2 Tensor的计算 ###
-```
+```python
 import torch
 
 #加(size和dtype需一致)
